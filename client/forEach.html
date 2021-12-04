@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>forEach array buildin method</title>
+    <style>
+        .checked{
+            color: green;
+        }
+        .unchecked{
+            color:crimson;
+        }
+        .method{
+            color: mediumpurple;
+        }
+    </style>
+</head>
+<body>
+    <h1>Learning <span class="method">forEach()</span> array method</h1>
+    <h2>Product list</h2>
+    <div id="app"></div>
+    <hr>
+    <h2>Tasks to interview</h2>
+    <div id="tasks"></div>
+    <script>
+        //PRODUTS
+        const products = [
+            {title: 'Burger', price: 120},
+            {title: 'Pizza', price: 40},
+            {title: 'Chocolate', price: 60},
+            {title: 'Fried Chicken', price: 80},
+            {title: 'Cafe', price: 25},
+        ];
+
+        const app = document.querySelector('#app');
+
+        products.forEach(item => {
+            app.innerHTML += `<li><strong>${item.title}</strong> : ${item.price} PEN</li>`;
+        });
+
+        
+        //TASKS
+        const tasks = document.querySelector('#tasks');
+
+        const jobs =[
+            {
+                id: 1,
+                mission: 'Pick my outfit',
+                time: '10 minutes',
+                status: true,
+            },
+            {
+                id: 2,
+                mission: 'Practice greeting',
+                time: '10 minutes',
+                status: false,
+            },
+            {
+                id: 3,
+                mission: 'Study my resume',
+                time: '20 minutes',
+                status: false,
+            },
+            {
+                id: 4,
+                mission: 'Practice common answers',
+                time: '30 minutes',
+                status: true,
+            },
+            {
+                id: 5,
+                mission: 'Research the company',
+                time: '30 minutes',
+                status: false,
+            },
+            {
+                id: 6,
+                mission: 'Find out the type of interview',
+                time: '20 minutes',
+                status: true,
+            },
+            {
+                id: 7,
+                mission: 'Directions to be on time',
+                time: '20 minutes',
+                status: true,
+            },
+            
+        ];
+
+        jobs.forEach(task => {
+            tasks.innerHTML += `
+                <li class='${task.status?'checked':'unchecked'}'>
+                    <input 
+                        type='checkbox'
+                        id='${task.id}'
+                        name='${task.mission}'
+                        ${task.status?'checked':''}
+                    />
+                    ${task.id} .- ${task.mission} (${task.time})
+                </li>
+            `;
+        });
+    </script>
+</body>
+</html>
