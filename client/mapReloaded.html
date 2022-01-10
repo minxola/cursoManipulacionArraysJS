@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map Method</title>
+    <style>
+        .method{
+            color: mediumpurple;
+        }
+        .product{
+            color: brown;
+        }
+    </style>
+</head>
+<body>
+    <h1>Learning <sapan class = "method">Map()</sapan> array method</h1>
+    <h2>List of products</h2>
+    <div id="app"></div>
+    <script>
+        //PRODUTS
+        const products = [
+            {title: 'Burger', price: 120},
+            {title: 'Pizza', price: 40},
+            {title: 'Chocolate', price: 60},
+            {title: 'Fried Chicken', price: 80},
+            {title: 'Cafe', price: 25},
+        ];
+
+        console.log(products);
+        
+        const productsOffer = products.map(item =>{
+            return{
+                ...item,
+                newPrice: item.price*0.60
+            }
+        });
+        console.log(productsOffer);
+        //Selecciona el elemento html con id = "app"
+        const app = document.querySelector('#app');
+
+        //crea una lista de elementos html almacenados en un array con el metodo map()
+        const list = productsOffer.map(product => `<li><b class = 'product'>Producto</b>: ${product.title} - <b>New Price:</b> ${product.newPrice}</li>`
+        );
+
+        //renderiza app uniendo los elementos con join();
+        app.innerHTML = list.join('');
+    </script>
+</body>
+</html>
