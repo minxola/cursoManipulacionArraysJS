@@ -1,8 +1,8 @@
 # Curso de Manipulación de Arrays
 
 Por: Nicolas Molina
-
-## 1. Curso de manipulación de Arrays
+## Introducción
+### 1. Curso de manipulación de Arrays
 
 Aprenderemos los diversos métodos para manipular arrays.
 
@@ -14,8 +14,8 @@ Configuración inicial del proyecto:
 - `npm init`
 - `http-server`
 - Iniciar servidor: `npx http-server client`
-
-## 2. forEach()
+## Fundamentos del manejo de Arrays
+### 2. forEach
 
 - Recorre cada uno de los elementos del array
 - Por cada elemento realiza una acción que le indiquemos
@@ -42,7 +42,7 @@ for(let index = 0; index < letters.length; index++){
 
 Cabe resaltar que al hacer el recorrido por cada elemento, se puede manipular cada uno de ellos para obtener un cierto resultado, que puede ser el mismo elemento u otro elemento modificado.
 
-## 3. Mutable e Inmutable
+### 3. Mutable e Inmutable
 
 **Mutable** es un tipo de variable que puede ser modificada. En *JavaScript*, solo los objetos y arrays son mutables, los valores primitivos no lo son.
 
@@ -52,7 +52,7 @@ Un objeto **inmutable**, es un objeto cuyo estado no puede ser cambiado una vez 
 
 Las cadenas de texto (Strings) y los números (Numbers) son *inmutables*.
 
-## 4. Map()
+### 4. Map
 
 - Transforma cada uno de los elementos
 - Nos **devuelve otro array** con los elementos modificados (transformados)
@@ -75,7 +75,7 @@ for (let i = 0; i < letters.length; i++){
 console.log(newArray); //['a++', 'b++', 'c++']
 ```
 
-## 5. Map() reloaded
+### 5. Map reloaded
 
 - El array final puede contener cualquier resultado según el algoritmo
 - Por tanto podemos usarlo para limpiar datos o filtrar (ciencia de datos)
@@ -166,6 +166,136 @@ people [
   ]
 */
 ```
+
+### 6. Filter
+
+- Sirve para filtrar elementos del array con una condición
+- Genera un nuevo array
+- Es un método inmutable, no cambia el array original
+- Puede mostrar desde 0 elementos hasta la misma cantidad de elementos del array original, según las coincidencias dentro del array
+
+```js
+const words = ['spray', 'home', 'exuberant', 'manteinance'];
+
+//Filtrar palabras de longitud mayor a 6
+const filtered = words.filter(item => item.length >= 6);
+
+//Mostrar filtered words
+console.log(filtered); //['exuberant', 'manteinance']
+
+//Mostrar original array
+console.log(words); //['spray', 'home', 'exuberant', 'manteinance']
+
+//Este mismo comportamiento se puede lograr usando for loops
+//Creamos un array vacío
+const filterWords = [];
+
+for (let index = 0; index < words.length; index++) {
+    const element = words[index];
+    if(element.length >= 6){
+        filterWords.push(element);
+    }
+}
+
+//Mostrando el array generado
+console.log(filterWords);//['exuberant', 'manteinance']
+
+//Original array
+console.log(words);//['spray', 'home', 'exuberant', 'manteinance']
+
+/*
+CONDICIONALES MAS COMPLEJAS
+*/
+//Se pueden hacer condiciones mas complejas para el filtrado
+
+const people = [
+    {
+        name: 'Peter',
+        age: 23,
+        country: 'PE',
+        vaccinated: true
+    },
+    {
+        name: 'Kim',
+        age: 35,
+        country: 'ES',
+        vaccinated: true
+    },
+    {
+        name: 'Jim',
+        age: 15,
+        country: 'PE',
+        vaccinated: false
+    },
+    {
+        name: 'Tim',
+        age: 12,
+        country: 'ES',
+        vaccinated: false
+    },
+    {
+        name: 'Kate',
+        age: 26,
+        country: 'ES',
+        vaccinated: false
+    },
+    {
+        name: 'Janeth',
+        age: 44,
+        country: 'MX',
+        vaccinated: true
+    },
+];
+
+//Mostrar personavas vacunadas y de Perú
+const vacPeru = people.filter(person => person.vaccinated && person.country === 'PE');
+console.log(vacPeru); 
+//[ { name: 'Peter', age: 23, country: 'PE', vaccinated: true } ]
+
+//Mostrar personas de España no vacunadas
+const esNoVac = people.filter(item => item.country === 'ES' && item.vaccinated === false);
+console.log(esNoVac);
+/*
+[
+  { name: 'Tim', age: 12, country: 'ES', vaccinated: false },
+  { name: 'Kate', age: 26, country: 'ES', vaccinated: false }
+]
+*/
+
+//Creando un buscador
+const search = (query) => {
+    return people.filter(item =>{
+        return item.name.includes(query);
+    });
+};
+
+console.log(search('im'));
+/*
+[
+  { name: 'Kim', age: 35, country: 'ES', vaccinated: true },
+  { name: 'Jim', age: 15, country: 'PE', vaccinated: false },
+  { name: 'Tim', age: 12, country: 'ES', vaccinated: false }
+]
+*/
+```
+
+### 7. Reduce
+
+
+
+### 8. Reduce Reloaded
+## Métodos en JavaScript
+### 9. Some
+### 10. Every
+### 11. Find y findIndex
+### 12. Includes
+### 13. Join
+### 14. Concat
+### 15. Flat
+### 16. FlatMap
+### 17. Mutable functions
+### 18. Sort
+## Despedida
 
 
 

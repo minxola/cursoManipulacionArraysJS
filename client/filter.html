@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filter elements</title>
+    <style>
+        .filter{
+            color: purple;
+        }
+        .vaccinated{
+            color: limegreen;
+        }
+        .unvaccinated{
+            color: crimson;
+        }
+        h2{
+            border: 2px solid chocolate;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: coral;
+            width: fit-content;
+            color: saddlebrown;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+    <h1><span class="filter">Filter()</span> array method</h1>
+    <input type="text" name="" id="query" class="buscar">
+    <button onclick="search()">Buscar</button>
+    <h2>List of people</h2>
+    <div id="app"></div>
+    <script>
+        const people = [
+            {
+                name: 'Peter',
+                age: 23,
+                country: 'PE',
+                vaccinated: true
+            },
+            {
+                name: 'Kim',
+                age: 35,
+                country: 'ES',
+                vaccinated: true
+            },
+            {
+                name: 'Jim',
+                age: 15,
+                country: 'PE',
+                vaccinated: false
+            },
+            {
+                name: 'Tim',
+                age: 12,
+                country: 'ES',
+                vaccinated: false
+            },
+            {
+                name: 'Kate',
+                age: 26,
+                country: 'ES',
+                vaccinated: false
+            },
+            {
+                name: 'Janeth',
+                age: 44,
+                country: 'MX',
+                vaccinated: true
+            },
+        ];
+        
+        //selección de nodos HTML (DOM)
+        const app = document.querySelector('#app');
+
+        //Generando una lista para app
+        const appList = people.map(item => {
+            return `<li class="${item.vaccinated?'vaccinated':'unvaccinated'}"><b>Nombre: ${item.name}</b>, Edad: ${item.age}, País: ${item.country}, Vaccinated: ${item.vaccinated}</li>`;
+        });
+
+        //Imprimiendo en app
+        app.innerHTML = appList.join('');
+
+
+
+        function search(){
+            //Obtener el query basado en el nombre
+            const query = document.querySelector('#query').value.toLowerCase();
+
+            //Filtro de datos con filter()
+            const filteredData = people.filter(({name, age, country, vaccinated}) =>{
+                return `${name}${age}${country}${vaccinated}`.toLowerCase().includes(query);
+            });
+
+            //Creación de un nuevo array de html
+            const filteredList = filteredData.map(item =>{
+                return `<li class="${item.vaccinated?'vaccinated':'unvaccinated'}"><b>Nombre: ${item.name}</b>, Edad: ${item.age}, País: ${item.country}, Vaccinated: ${item.vaccinated}</li>`;
+            });
+
+            //renderizado de datos filtrados
+            app.innerHTML = filteredList.join('');
+        
+        }
+
+    </script>
+</body>
+</html>
