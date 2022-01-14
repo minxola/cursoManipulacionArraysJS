@@ -281,9 +281,51 @@ console.log(search('im'));
 
 ### 7. Reduce
 
+- Devuelve solo un valor
+- Es un método que no causa mutabilidad en el array original
 
+```js
+const numbers = [1, 2, 3, 4];
+
+//reduce requiere un función
+//Esta función tiene dos parametros
+//Uno representa al acumulador => a
+//El otro representa a los elementos => e
+//Se debe pasar un estado inicial del acumulador => 0
+const suma = numbers.reduce((a, e) => a + e, 0);
+console.log(suma); //10
+
+//si no se coloca el estado inicial del acumulador
+//por defecto tomará el valor de 0
+const sum = numbers.reduce((a, e) => a + e);
+console.log(sum); //10
+```
+
+Veamos que valores toman el acumulador en cada iteración:
+
+| Iteración | a    | e    | return (a + e) |
+| --------- | ---- | ---- | -------------- |
+| 1         | 0    | 1    | (0 + 1) = 1    |
+| 2         | 1    | 2    | (1 + 2) = 3    |
+| 3         | 3    | 3    | (3 + 3) = 6    |
+| 4         | 6    | 4    | (6 + 4) = 10   |
+
+El mismo resultado se puede lograr usando ciclos for:
+
+```js
+let sum = 0;
+for(let i = 0; i < numbers.length; i++){
+    const element = numbers[i];
+    sum = sum + element;
+}
+
+console.log(sum); //10
+```
 
 ### 8. Reduce Reloaded
+
+
+
 ## Métodos en JavaScript
 ### 9. Some
 ### 10. Every
