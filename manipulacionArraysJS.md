@@ -429,8 +429,8 @@ console.log(ranges);
 ## Métodos en JavaScript
 ### 9. Some
 
-- Nos dice si algún elemento cumple con una condicional
-- Nos devuelve `true` o `false`
+- Muestra si al menos un elemento del array cumple con una condición
+- Nos devuelve `true` o `false` según sea el caso
 
 ```js
 const arr = [1, 2, 3, 4, 5, 6];
@@ -486,7 +486,14 @@ const entregado = orders.some(orden => orden.delivered);
 console.log(entregado); //true
 ```
 
+Para trabajar con fechas una librería o paquete para instalar desde la consola es:
+
+[date-fns](https://date-fns.org/), que nos permite manipular fechas con JavaScript en un navegador o en Node.js.
+
 ### 10. Every
+
+- El método `every()` evalúa si todos los elementos de un array cumplen con una condición dada.
+- Si todos cumplen con la condición devuelve `true`, de caso contrario `false`.
 
 
 
