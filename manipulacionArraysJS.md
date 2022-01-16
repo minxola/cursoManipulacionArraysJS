@@ -428,7 +428,68 @@ console.log(ranges);
 
 ## Métodos en JavaScript
 ### 9. Some
+
+- Nos dice si algún elemento cumple con una condicional
+- Nos devuelve `true` o `false`
+
+```js
+const arr = [1, 2, 3, 4, 5, 6];
+
+//Saber si hay numeros pares
+const r = arr.some(item => item % 2 === 0);
+console.log('Some: ', r); //Some: true
+
+//Saber si hay pares con condicionales
+let rta = false; //suponemos que no hay
+
+for (let index = 0; index < arr.length; index++) {
+    const element = arr[index];
+    if (element % 2 === 0){
+        rta = true;
+        break;
+    }
+}
+
+console.log('Loop: ', rta); //Loop: true
+
+//Trabajando con objetos
+const orders = [
+    {
+    customerName: "Nicolas",
+    total: 60,
+    delivered: true,
+    },
+    {
+    customerName: "Zulema",
+    total: 120,
+    delivered: false,
+    },
+    {
+    customerName: "Santiago",
+    total: 180,
+    delivered: true,
+    },
+    {
+    customerName: "Valentina",
+    total: 240,
+    delivered: true,
+    },
+    {
+    customerName: "Nicolas",
+    total: 2322,
+    delivered: false,
+    },
+];
+
+//Ver si al menos una orden fue entregada
+const entregado = orders.some(orden => orden.delivered);
+console.log(entregado); //true
+```
+
 ### 10. Every
+
+
+
 ### 11. Find y findIndex
 ### 12. Includes
 ### 13. Join
