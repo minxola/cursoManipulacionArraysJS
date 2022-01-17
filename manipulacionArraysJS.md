@@ -668,9 +668,68 @@ console.log(rta2); //true
 
 ### 13. Join
 
+#### join()
 
+- Une los elementos de un array
+- Se le debe pasar un separador
+- Devuelve una cadena `string`
+
+```js
+const words = ['Fire', 'Air', 'Water'];
+
+//al método join() se le debe pasar un separador:string
+const joinWords = words.join('--');
+console.log(joinWords); //Fire--Air--Water
+
+//También se puede lograr con for loop
+let str = '';
+const separador = '--';
+for (let i = 0; i < words.length; i++) {
+    const element = words[i];
+    str = str + element + separador;
+}
+
+console.log(str); //Fire--Air--Water--
+
+//Para evitar la adición final de '--' podemos agregar un condicional
+//dentro del loop
+let rta = '';
+for (let j = 0; j < words.length; j++) {
+    const element = words[j];
+    j + 1 < words.length
+        ? rta = rta + element + separador
+        : rta = rta + element
+}
+console.log(rta); //Fire--Air--Water
+```
+
+#### split()
+
+- Divide un objeto `string` en un `array`
+- Se le debe pasar un patrón o separador con el cual debe romper la cadena
+
+```js
+const f = 'Curso de manipulacion de arrays';
+
+//Con split podemos convertir el string en un array
+//al método split() se le debe pasar un separador (patron)
+//el cual puede ser una coma, espacio, etc.
+
+//haciendo un array, basados en espacio ' '
+const arr = f.split(' ');
+console.log(arr); //[ 'Curso', 'de', 'manipulación', 'de', 'arrays' ]
+
+//split() y join() son métodos complementarios
+//luego podemos usar join para generar una url por ejemplo
+
+const url = arr.join('-').toLocaleLowerCase();
+console.log(url);//curso-de-manipulacion-de-arrays
+```
 
 ### 14. Concat
+
+
+
 ### 15. Flat
 ### 16. FlatMap
 ### 17. Mutable functions
