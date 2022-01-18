@@ -785,7 +785,41 @@ console.log(m); //[ 1, 1, 4, 4 ]
 
 ### 15. Flat
 
+- Crea una nueva matriz con todos los elementos de sub-array, concatenados recursivamente, hasta una **profundidad** específica.
+- Si no se especifica la profundidad, por defecto será 1.
 
+```js
+const matriz = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9],
+];
+
+//Aplanando la matriz (profundidad por defecto 1)
+const flatArr = matriz.flat();
+console.log(flatArr); //[1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+//Se puede lograr con un for loop (profundidad 1)
+const newArr = [];
+for (let i = 0; i < matriz.length; i++) {
+    const arr = matriz[i];
+    for (let j = 0; j < arr.length; j++) {
+        const element = arr[j];
+        newArr.push(element);
+    }
+}
+console.log(newArr); //[1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+//Arrays con mas de 1 nivel de profundidad
+const arr = [
+    [1, 2, 3],
+    [4, [5, 6], [7, 8, [9, 10]]],
+    [11, 12, 13],
+];
+
+const newMat = arr.flat(3);
+console.log(newMat); //[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+```
 
 ### 16. FlatMap
 
