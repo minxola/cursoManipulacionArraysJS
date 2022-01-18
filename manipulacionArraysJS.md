@@ -823,9 +823,25 @@ console.log(newMat); //[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
 
 ### 16. FlatMap
 
+- Es como una combinación de `flat()` y `map()`
+- Devuelve un flat array (arreglo aplanado)
+- inmutable
 
+```js
+const users = [
+    {userID: 1, username: 'Tom', attributes: ['Nice', 'Cute']},
+    {userID: 2, username: 'Mike', attributes: ['Lovely']},
+    {userID: 3, username: 'Niko', attributes: ['Nice', 'Cool']},
+];
+
+const rta = users.flatMap(user => user.attributes);
+console.log(rta); //[ 'Nice', 'Cute', 'Lovely', 'Nice', 'Cool' ]
+```
 
 ### 17. Mutable functions
+
+
+
 ### 18. Sort
 ## Despedida
 
