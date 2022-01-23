@@ -106,8 +106,14 @@ const myFood = productos.filter(e => e.id === id);
 //productos finales en tienda
 const remainProducts = productos.filter(e => e.id !== id);
 
-console.log(myFood);
+console.log(myFood);//[ { title: 'Burger', price: 12, id: '🍔' } ]
 console.log(remainProducts);
+/*
+[
+  { title: 'Pizza', price: 34, id: '🍕' },
+  { title: 'Hot cakes', price: 20, id: '🥞' }
+]
+*/
 
 //RETO 2: Actualizar un array sin modificar array original
 const items = [
