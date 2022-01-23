@@ -840,6 +840,82 @@ console.log(rta); //[ 'Nice', 'Cute', 'Lovely', 'Nice', 'Cool' ]
 
 ### 17. Mutable functions
 
+Hay varios métodos para manipular arreglos los cuales si son mutables.
+
+#### push()
+
+- Añade uno o mas elementos al final de un array
+- Devuelve la longitud del array nuevo.
+
+```js
+//agregando un numero al array
+const a = [1, 2, 3];
+a.push(100000);
+console.log(a); //[1, 2, 3, 100000]
+
+//agregando un elemento tipo array
+const b = ['x', 'y'];
+b.push(['z', 'w']);
+console.log(b); //['x', 'y', ['z', 'w']]
+```
+
+#### splice()
+
+- Cambia el contenido de un array, eliminando elementos o agregando nuevos.
+- Devuelve un array de elementos eliminados.
+- Sintaxis: `array.splice(start, ?deleteCount,...items)`
+
+```js
+//Eliminar el primer elemento del array
+const a = [1, 2, 3, 4];
+const b = a.splice(0, 1);
+console.log(a); //[2, 3, 4]
+console.log(b); //[1]
+
+//Eliminar 'a' y 'b', y en su lugar insertar 'x' y 'y'
+const m = ['a', 'b', 'c'];
+const n = m.splice(0, 2, 'x', 'y');
+console.log(m);//['x', 'y', 'c']
+console.log(n);//['a', 'b']
+```
+
+#### pop()
+
+- El método `pop()` elimina el último elemento de un array.
+- Devuelve el elemento que eliminó.
+- Si el Array es vacío devuelve `undefined`.
+
+```js
+const x = [1, 2, 3, 4];
+const y = x.pop();
+console.log(x); //[1, 2, 3]
+console.log(y); //4
+```
+
+#### shift()
+
+- El método `shift()` elimina el primer elemento de un array.
+- Devuelve el elemento eliminado del array.
+
+```js
+const m = ['a', 'b', 'c'];
+const n = m.shift();
+console.log(m); //['b', 'b']
+console.log(n); //'a'
+```
+
+#### unshift()
+
+- El método `unshift()` agrega uno o más elementos al inicio del array.
+- Devuelve la nueva longitud del array.
+
+```js
+const a = [2, 4, 5];
+const b = a.unshift(10);
+console.log(a); //[10, 2, 4, 5]
+console.log(b); //4 --> porque devolvió la nueva longitud del array.
+```
+
 
 
 ### 18. Sort
